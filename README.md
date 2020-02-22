@@ -1,5 +1,7 @@
 <p align="center">
+
 ![REACT](Art/react.png?raw=true)
+
 </p>
 
 ## Synopsis
