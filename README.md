@@ -16,7 +16,7 @@ Working with the Raspberry Pi should not only be educational, but **fun**!
 
 #### Connecting the LED & Switch
 
-Because the Pi requires basic current protection, a resister is used in series with *both* the push button and the LED
+Because the Pi requires basic current protection, a resistor is used in series with *both* the push button and the LED
 
 ```
  BUTTON_PIN-----Button-----/\/\/\/---------o Gnd
@@ -145,7 +145,7 @@ We don't need any stinking limitations.
 
 ## Contributors
 
-All code by Craig Miller cvmiller at gmail dot com. But ideas, and ports to other embedded platforms are welcome. 
+All code by Craig Miller cvmiller at gmail dot com except where noted. But ideas, and ports to other embedded platforms are welcome. 
 
 
 ## License

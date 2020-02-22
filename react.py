@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/env python3
 
 """
  Reaction Time Game on the Pi
@@ -16,7 +16,7 @@
 
  18 Feb 2020 by Craig Miller
  
- Version 0.8
+ Version 0.85
 """
 
 FALSE = 0
@@ -74,6 +74,7 @@ import sys, termios, tty
 #
 # Blocking function to get any character from the keyboard
 #
+# getch function from: https://www.jonwitts.co.uk/archives/896
 
 def getch():
     fd = sys.stdin.fileno()
@@ -259,14 +260,17 @@ def main ():
 
     #Initialize GPIO mode to BOARD, silence warnings
     if USE_LED:
-        # use the GPIO library
-        import RPi.GPIO as GPIO
+        try:
+            # use the GPIO library
+            import RPi.GPIO as GPIO
 
-        # silence the warnings
-        GPIO.setwarnings(False)
-        # Set the pin mode to board pin numbering
-        GPIO.setmode(GPIO.BOARD)
-
+            # silence the warnings
+            GPIO.setwarnings(False)
+            # Set the pin mode to board pin numbering
+            GPIO.setmode(GPIO.BOARD)
+        except:
+            print("GPIO not supported or /dev/mem not accessible. Try with -n -k options")
+            os._exit(1)
     
     # initialize the button
     button = mybutton(use_keyboard)
