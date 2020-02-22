@@ -1,5 +1,5 @@
 <p align="center">
-![REACT!](Art/react.png)
+![REACT](Art/react.png?raw=true)
 </p>
 
 ## Synopsis
