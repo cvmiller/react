@@ -1,3 +1,7 @@
+<p align="center">
+![REACT!](Art/react.png)
+</p>
+
 ## Synopsis
 
 
