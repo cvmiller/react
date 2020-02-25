@@ -1,15 +1,15 @@
-<p align="center">
+<center>
 
 ![REACT](Art/react.png?raw=true)
 
-</p>
+</center>
 
 ## Synopsis
 
 
 A python game played with just one LED and one Switch (push button) on a Raspberry Pi.
 
-The game measures the reaction time of the player, but lighting the LED, and the player pushing the push button as quickly as they can to turn the LED off. The amount of time is measured, and after 3 rounds (of playing the game), the reaction times are printed (in mili-seconds)
+The game measures the reaction time of the player, by lighting the LED, and the player pushing the push button as quickly as they can to turn the LED off. The amount of time is measured, and after 3 rounds (of playing the game), the reaction times are printed (in mili-seconds)
 
 
 ## Motivation
@@ -39,7 +39,7 @@ And the LED:
 
 ```
 
-Using the handy Pi [pin out chart](https://en.wikipedia.org/wiki/Raspberry_Pi#General_purpose_input-output_(GPIO)_connector), one would determine two (2) GPIO (General Purpose Input/Output), and two (2) ground pins to use.
+Using the handy Pi [pin out chart](https://en.wikipedia.org/wiki/Raspberry_Pi#General_purpose_input-output_(GPIO)_connector), one can select two (2) GPIO (General Purpose Input/Output) pines, and two (2) ground pins to use.
 
 
 
