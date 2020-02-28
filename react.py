@@ -16,7 +16,7 @@
 
  18 Feb 2020 by Craig Miller
  
- Version 0.85
+ Version 0.86
 """
 
 FALSE = 0
@@ -132,7 +132,7 @@ class mytime :
 
 class mybutton:
     def __init__(self,mode='btn',delay=50):
-        global DEBUG, BUTTON_PIN
+        global DEBUG, BUTTON_PIN, GPIO
         
         self.UP = 0
         self.DOWN = not self.UP
@@ -182,7 +182,7 @@ class mybutton:
 
 class myled:
     def __init__(self,use_led=TRUE):
-        global DEBUG, LED_PIN, DELAY_READY
+        global DEBUG, LED_PIN, DELAY_READY, GPIO
         
         self.pin = LED_PIN
         self.ready = DELAY_READY
@@ -215,7 +215,7 @@ class myled:
 
 
 def main ():
-    global USE_KBD, USE_LED, DEBUG, LED_PIN, BUTTON_PIN, DELAY_SMALL, DELAY_BIG, DELAY_READY
+    global USE_KBD, USE_LED, DEBUG, GPIO, LED_PIN, BUTTON_PIN, DELAY_SMALL, DELAY_BIG, DELAY_READY
     
     # initialze input method
     use_keyboard = 'btn'
@@ -272,6 +272,7 @@ def main ():
             print("GPIO not supported or /dev/mem not accessible. Try with -n -k options")
             os._exit(1)
     
+    
     # initialize the button
     button = mybutton(use_keyboard)
         
@@ -314,6 +315,13 @@ def main ():
     print("\nYour times were:")
     timer.show_hist()
 
+    if USE_LED:
+        try:
+            # Restore GPIO to default
+            GPIO.cleanup()
+        except:
+            print("There was a problem with GPIO.cleanup, exiting...")
+    
 
 def exit_with_usage(exit_code=2):
     # __doc_ prints the first comment at top of this script
