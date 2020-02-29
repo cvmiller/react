@@ -16,7 +16,7 @@
 
  18 Feb 2020 by Craig Miller
  
- Version 0.86
+ Version 0.87
 """
 
 FALSE = 0
@@ -132,7 +132,7 @@ class mytime :
 
 class mybutton:
     def __init__(self,mode='btn',delay=50):
-        global DEBUG, BUTTON_PIN, GPIO
+        global DEBUG, BUTTON_PIN
         
         self.UP = 0
         self.DOWN = not self.UP
@@ -182,7 +182,7 @@ class mybutton:
 
 class myled:
     def __init__(self,use_led=TRUE):
-        global DEBUG, LED_PIN, DELAY_READY, GPIO
+        global DEBUG, LED_PIN, DELAY_READY
         
         self.pin = LED_PIN
         self.ready = DELAY_READY
@@ -259,7 +259,7 @@ def main ():
     count = 0
 
     #Initialize GPIO mode to BOARD, silence warnings
-    if USE_LED:
+    if USE_LED or not USE_KBD:
         try:
             # use the GPIO library
             import RPi.GPIO as GPIO
@@ -315,7 +315,7 @@ def main ():
     print("\nYour times were:")
     timer.show_hist()
 
-    if USE_LED:
+    if USE_LED or not USE_KBD:
         try:
             # Restore GPIO to default
             GPIO.cleanup()
